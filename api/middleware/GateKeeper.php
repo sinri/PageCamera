@@ -9,7 +9,13 @@
 namespace sinri\PageCamera\api\middleware;
 
 
-class GateKeeper
+use sinri\enoch\mvc\MiddlewareInterface;
+
+class GateKeeper extends MiddlewareInterface
 {
+    public function shouldAcceptRequest($path, $method, $params, &$preparedData = null)
+    {
+        return true;
+    }
 
 }

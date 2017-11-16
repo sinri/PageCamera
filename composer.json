@@ -1,0 +1,16 @@
+{
+  "name": "sinri/page-camera",
+  "description": "A screenshots worker for web page",
+  "type": "project",
+  "require": {
+    "sinri/enoch": "^2.1"
+  },
+  "license": "GPLv3",
+  "authors": [
+    {
+      "name": "Sinri Edogawa",
+      "email": "e.joshua.s.e@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable"
+}

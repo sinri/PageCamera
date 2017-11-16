@@ -7,7 +7,7 @@ console.log(argv);
 const targetURL = argv.url?argv.url:'https://sinri.cc';
 //const viewport =[argv.viewportWidth||1440,argv.viewportHeight||900]; //[1440,900];
 const viewportWidth=argv.viewportWidth?argv.viewportWidth:1440;
-const viewportHeight=argv.viewportHeight?argv.viewportHeight:1440;
+const viewportHeight = argv.viewportHeight ? argv.viewportHeight : 900;
 
 const screenshotDelay = argv.delay?argv.delay:2000; // 2000; // ms
 const fullPage = argv.fullPage || false;
@@ -65,12 +65,14 @@ CDP(async function(client){
             if (err) {
                 console.error(err);
             } else {
-                console.log('Screenshot saved');
+                console.log('Screenshot saved to file: ' + targetOutputFile);
             }
         });
         client.close();
+        process.exit(0);
     }, screenshotDelay);
 
 }).on('error', err => {
     console.error('Cannot connect to browser:', err);
+process.exit(1);
 });

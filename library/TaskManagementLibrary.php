@@ -11,5 +11,23 @@ namespace sinri\PageCamera\library;
 
 class TaskManagementLibrary
 {
+    public function registerTask($task)
+    {
+        // TODO
+    }
 
+    public function removeTask($task_id)
+    {
+        // TODO
+    }
+
+    public function findTask($task_id)
+    {
+        // TODO
+    }
+
+    public function listTasks()
+    {
+        // TODO
+    }
 }
