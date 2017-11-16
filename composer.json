@@ -3,7 +3,8 @@
   "description": "A screenshots worker for web page",
   "type": "project",
   "require": {
-    "sinri/enoch": "^2.1"
+    "sinri/enoch": "^2.1",
+    "sinri/sinridingtalkhelper": "^0.1"
   },
   "license": "GPLv3",
   "authors": [

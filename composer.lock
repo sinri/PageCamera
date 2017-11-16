@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c2db0e0a881cb5aec87a60970643b49b",
+    "content-hash": "5539e3c9d5dbbc2946d75ac93d006d3e",
     "packages": [
         {
             "name": "ralouphie/getallheaders",
@@ -93,6 +93,39 @@
                 "php-framework"
             ],
             "time": "2017-09-15T06:06:48+00:00"
+        },
+        {
+            "name": "sinri/sinridingtalkhelper",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sinri/SinriDingtalkHelper.git",
+                "reference": "ab0b3114e4716053e315eb96685f8d0590b8a365"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/sinri/SinriDingtalkHelper/ab0b3114e4716053e315eb96685f8d0590b8a365.zip",
+                "reference": "ab0b3114e4716053e315eb96685f8d0590b8a365",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Sinri Edogawa",
+                    "email": "e.joshua.s.e@gmail.com"
+                }
+            ],
+            "description": "Dingtalk PHP light SDK",
+            "time": "2017-09-30T07:07:57+00:00"
         },
         {
             "name": "sinri/smallphpmailer",

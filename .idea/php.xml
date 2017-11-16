@@ -6,6 +6,7 @@
       <path value="$PROJECT_DIR$/vendor/sinri/smallphpmailer" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/sinri/sinridingtalkhelper" />
     </include_path>
   </component>
 </project>
