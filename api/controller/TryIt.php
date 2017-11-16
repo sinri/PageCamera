@@ -35,7 +35,7 @@ class TryIt extends SethController
         $task->setOutputDir('/tmp');
         $task->setUrl($url);
 
-        $file = $task->takePhoto();
+        $file = $task->takePhoto($command);
 
         LibResponse::downloadFileAsName($file);
     }

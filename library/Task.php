@@ -99,7 +99,7 @@ class Task
         $this->timerOption = $timerOption;
     }
 
-    public function takePhoto()
+    public function takePhoto(&$command = '')
     {
         $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
 
@@ -113,7 +113,7 @@ class Task
         $command .= " --outputFile " . escapeshellarg($output_file);
         $command .= " --url " . escapeshellarg($this->url);
 
-        echo "Prepared command: " . $command . PHP_EOL;
+        //echo "Prepared command: " . $command . PHP_EOL;
 
         $line = exec($command, $output, $return_var);
 

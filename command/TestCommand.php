@@ -42,7 +42,8 @@ class TestCommand extends Enos
         $task->setOutputDir('/opt/chrome_headless_test');
         $task->setUrl("https://freeplus.tmall.com/shop/view_shop.htm?user_number_id=2646612614");
 
-        $output = $task->takePhoto();
+        $output = $task->takePhoto($command);
+        echo "COMMAND: " . $command . PHP_EOL;
         echo "OUTPUT: " . $output . PHP_EOL;
     }
 }
