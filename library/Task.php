@@ -101,7 +101,7 @@ class Task
 
     public function takePhoto()
     {
-        $output_file = $this->outputDir . '/' . $this->taskID . "-" . date('YmdHis') . ".png";
+        $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
 
         $command = "node " . __DIR__ . '/../camera/camera.js ';
         if ($this->fullPage) {

@@ -37,6 +37,7 @@ class TestCommand extends Enos
     public function actionTestTakePhoto()
     {
         $task = new Task();
+        $task->setTaskID("TEST");
         $task->setDelay(15000);
         $task->setOutputDir('/opt/chrome_headless_test');
         $task->setUrl("https://freeplus.tmall.com/shop/view_shop.htm?&user_number_id=2646612614");
