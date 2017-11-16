@@ -19,7 +19,7 @@ $lamech->getRouter()->setErrorHandler(function ($err_data) {
 
 $lamech->getRouter()->loadAllControllersInDirectoryAsCI(
     __DIR__ . '/controller',
-    'api/',
+    '',
     '\sinri\PageCamera\api\controller\\',
     ['\sinri\PageCamera\api\middleware\GateKeeper']
 );
