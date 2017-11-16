@@ -64,12 +64,13 @@ CDP(async function(client){
         fs.writeFile(targetOutputFile, buffer, 'base64', function(err) {
             if (err) {
                 console.error(err);
+                process.exit(1);
             } else {
                 console.log('Screenshot saved to file: ' + targetOutputFile);
+                process.exit(0);
             }
         });
         client.close();
-        process.exit(0);
     }, screenshotDelay);
 
 }).on('error', err => {
