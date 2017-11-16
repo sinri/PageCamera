@@ -19,5 +19,10 @@ nohup google-chrome --headless --hide-scrollbars --remote-debugging-port=9222 --
 Then run camera.js
 
 ```bash
-node camera.js --fullPage true --viewportWidth 1366 --viewportHeight 768 --delay 5000 --outputFile ./1.png
+node camera.js --fullPage true --viewportWidth 1366 --viewportHeight 768 --delay 5000 --outputFile ./1.png --url http://everstray.com
 ```
+
+Other parameters:
+
+* fitWindow true/false
+* isMobile true/false

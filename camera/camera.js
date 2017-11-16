@@ -4,10 +4,15 @@ const fs = require('fs');
 
 console.log(argv);
 
-const targetURL = argv.url || 'https://sinri.cc';
-const viewport =[argv.viewportWidth||1440,argv.viewportHeight||900]; //[1440,900];
-const screenshotDelay = argv.delay||2000; // 2000; // ms
+const targetURL = argv.url?argv.url:'https://sinri.cc';
+//const viewport =[argv.viewportWidth||1440,argv.viewportHeight||900]; //[1440,900];
+const viewportWidth=argv.viewportWidth?argv.viewportWidth:1440;
+const viewportHeight=argv.viewportHeight?argv.viewportHeight:1440;
+
+const screenshotDelay = argv.delay?argv.delay:2000; // 2000; // ms
 const fullPage = argv.fullPage || false;
+const fitWindow = argv.fitWindow || false;
+const isMobile = argv.isMobile || false;
 
 const targetOutputFile=argv.outputFile||'camera-js-page.png';
 
@@ -25,16 +30,16 @@ CDP(async function(client){
 
     // change these for your tests or make them configurable via argv
     var device = {
-        width: viewport[0],
-        height: viewport[1],
+        width: viewportWidth,
+        height: viewportHeight,
         deviceScaleFactor: 0,
-        mobile: false,
-        fitWindow: false
+        mobile: isMobile,
+        fitWindow: fitWindow
     };
 
     // set viewport and visible size
     await Emulation.setDeviceMetricsOverride(device);
-    await Emulation.setVisibleSize({width: viewport[0], height: viewport[1]});
+    await Emulation.setVisibleSize({width: viewportWidth, height: viewportHeight});
 
     await Page.navigate({url: targetURL});
 
