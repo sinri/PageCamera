@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Have a try! - Page Camera</title>
+</head>
+<body>
+<div id="app">
+    <h1>Have a try! - Page Camera</h1>
+    <hr>
+    <form action="../api/TryIt/takePhotoOfUrl" method="POST">
+        <div>
+            <label for="url">URL:</label>
+            <textarea id="url" name="url"></textarea>
+        </div>
+        <div>
+            <label for="delay">Delay:</label>
+            <select id="delay" name="delay">
+                <option value="1000">1 second</option>
+                <option value="2000">2 seconds</option>
+                <option value="5000">5 seconds</option>
+                <option value="10000">10 seconds</option>
+            </select>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
