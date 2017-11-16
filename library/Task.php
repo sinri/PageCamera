@@ -103,7 +103,9 @@ class Task
     {
         $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
 
-        $command = "node " . __DIR__ . '/../camera/camera.js ';
+        $node = ConfigReader::readConfig("env", ["node_executable_path"], "node");
+
+        $command = $node . " " . __DIR__ . '/../camera/camera.js ';
         if ($this->fullPage) {
             $command .= " --fullPage true ";
         }
