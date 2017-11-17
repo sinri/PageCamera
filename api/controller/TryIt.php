@@ -27,7 +27,7 @@ class TryIt extends SethController
     public function takePhotoOfUrl()
     {
         $url = LibRequest::getRequest("url", 'https://www.leqee.com', '/^https?\:\/\/.+$/', $incorrectUrl);
-        CommonHelper::assertNotEmpty(!$incorrectUrl);
+        CommonHelper::assertNotEmpty(!$incorrectUrl, 'URL should be declared in http or https!');
         $delay = LibRequest::getRequest("delay", 2000);
         if (!$delay || $delay <= 0 || $delay > 1000 * 30) {
             $delay = 2000;
