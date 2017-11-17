@@ -1,3 +1,5 @@
+// REFERENCE: https://jonathanmh.com/taking-full-page-screenshots-headless-chrome/
+
 const CDP = require('chrome-remote-interface');
 const argv = require('minimist')(process.argv.slice(2));
 const fs = require('fs');
