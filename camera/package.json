@@ -1,0 +1,11 @@
+{
+  "name": "camera",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "minimist": "~1.2.0",
+    "chrome-remote-interface": "~0.25.3",
+    "node-schedule": "~1.2.5"
+  },
+  "license": "MIT"
+}

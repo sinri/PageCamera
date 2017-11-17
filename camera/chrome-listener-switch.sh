@@ -16,6 +16,8 @@ startChromeHeadless() {
         chmod -R 777 /var/log/chrome_headless;
     fi
     nohup google-chrome --headless --hide-scrollbars --remote-debugging-port=9222 --disable-gpu >> /var/log/chrome_headless/chrome_headless.$(date +\%Y\%m\%d).log 2>&1 &
+    echo "spend 3 seconds to wait for launch..."
+    sleep 3
 }
 
 stopChromeHeadless() {

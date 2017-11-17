@@ -28,12 +28,14 @@ class TryIt extends SethController
         if (!$delay || $delay <= 0 || $delay > 1000 * 30) {
             $delay = 2000;
         }
+        $viewportWidth = LibRequest::getRequest("width", 1366);
 
         $task = new Task();
         $task->setTaskID(uniqid("PageCamera_TryIt_"));
         $task->setDelay($delay);
         $task->setOutputDir('/tmp');
         $task->setUrl($url);
+        $task->setViewportWidth($viewportWidth);
 
         $file = $task->takePhoto($command);
 

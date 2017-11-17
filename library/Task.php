@@ -99,6 +99,11 @@ class Task
         $this->timerOption = $timerOption;
     }
 
+    /**
+     * @param string $command
+     * @return string
+     * @throws \Exception
+     */
     public function takePhoto(&$command = '')
     {
         $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";

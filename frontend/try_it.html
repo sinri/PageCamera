@@ -8,7 +8,7 @@
 <div id="app">
     <h1>Have a try! - Page Camera</h1>
     <hr>
-    <form action="../api/TryIt/takePhotoOfUrl" method="POST">
+    <form action="../api/TryIt/takePhotoOfUrl" method="POST" target="result_iframe">
         <div>
             <label for="url">URL:</label>
             <textarea id="url" name="url"></textarea>
@@ -23,9 +23,21 @@
             </select>
         </div>
         <div>
+            <label for="width">Width:</label>
+            <select id="width" name="width">
+                <option value="1366">1366px (13 inch)</option>
+                <option value="1440">1440px (13 inch half retina)</option>
+                <option value="1024">1024px (11 inch)</option>
+                <option value="375">375px (iPhone 6)</option>
+                <option value="414">414px (iPhone 6 Plus)</option>
+            </select>
+        </div>
+        <div>
             <button>Submit</button>
         </div>
     </form>
+    <hr>
+    <iframe name="result_iframe"></iframe>
 </div>
 </body>
 </html>
