@@ -25,6 +25,10 @@ class Task
      */
     protected $fullPage = true;
     /**
+     * @var bool
+     */
+    protected $fitWindow = true;
+    /**
      * @var int
      */
     protected $viewportWidth = 1366;
@@ -39,15 +43,15 @@ class Task
     /**
      * @var string
      */
-    //protected $outputDir = '.';
-    /**
-     * @var string
-     */
     protected $taskID;
     /**
      * @var array
      */
     protected $timerOption;
+    /**
+     * @var string
+     */
+    //protected $outputDir = '.';
 
     public function __construct()
     {
@@ -70,6 +74,22 @@ class Task
             }
         }
         return $class;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFitWindow()
+    {
+        return $this->fitWindow;
+    }
+
+    /**
+     * @param bool $fitWindow
+     */
+    public function setFitWindow($fitWindow)
+    {
+        $this->fitWindow = $fitWindow;
     }
 
     /**
@@ -153,6 +173,9 @@ class Task
         $command = $node . " " . __DIR__ . '/../camera/camera.js ';
         if ($this->fullPage) {
             $command .= " --fullPage true ";
+        }
+        if ($this->fitWindow) {
+            $command .= " --fitWindow true ";
         }
         $command .= " --viewportWidth " . intval($this->viewportWidth, 10);
         $command .= " --viewportHeight " . intval($this->viewportHeight, 10);
