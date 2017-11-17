@@ -43,7 +43,7 @@ class PageCameraHelper
     public static function log($prefix, $level, $message, $object = '')
     {
         if (empty(self::$logger)) {
-            $logDir = self::readConfig("env", ['log', 'path'], '/var/log/PageCamera');
+            $logDir = self::readConfig("env", ['log', 'path'], __DIR__ . '/../log');
             if (!file_exists($logDir)) {
                 @mkdir($logDir, 0777, true);
             }
