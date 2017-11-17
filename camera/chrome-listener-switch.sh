@@ -22,7 +22,7 @@ stopChromeHeadless() {
 
 statusOfChromeHeadless() {
     chrome_headless_pid=`ps aux|grep chrome|grep 9222|awk '{print $2}'`
-    if [ ${chrome_headless_pid} == '' ]; then
+    if [ "${chrome_headless_pid}" == '' ]; then
         echo Chrome Headless is not running!
         return 0;
     else
