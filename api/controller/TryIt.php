@@ -43,7 +43,7 @@ class TryIt extends SethController
         $task = new Task();
         $task->setTaskID(uniqid("PageCamera_TryIt_"));
         $task->setDelay($delay);
-        $task->setOutputDir('/tmp');
+//        $task->setOutputDir('/tmp');
         $task->setUrl($url);
         $task->setViewportWidth($viewportWidth);
 
