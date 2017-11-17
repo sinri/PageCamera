@@ -108,7 +108,7 @@ class Task
     {
         $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
 
-        $node = ConfigReader::readConfig("env", ["node_executable_path"], "node");
+        $node = PageCameraHelper::readConfig("env", ["node_executable_path"], "node");
 
         $command = $node . " " . __DIR__ . '/../camera/camera.js ';
         if ($this->fullPage) {
