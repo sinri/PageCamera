@@ -11,8 +11,11 @@ namespace sinri\PageCamera\library;
 
 class Task
 {
-// node camera.js --fullPage true --viewportWidth 1366 --viewportHeight 768 --delay 5000 --outputFile ./1.png
 
+    /**
+     * @var string
+     */
+    protected $title;
     /**
      * @var string
      */
@@ -36,7 +39,7 @@ class Task
     /**
      * @var string
      */
-    protected $outputDir = '.';
+    //protected $outputDir = '.';
     /**
      * @var string
      */
@@ -49,6 +52,40 @@ class Task
     public function __construct()
     {
 
+    }
+
+    /**
+     * @param $string
+     * @return Task
+     * @throws \Exception
+     */
+    public static function fromJsonString($string)
+    {
+        $json = json_decode($string, true);
+        if (!is_array($json)) throw new \Exception("Cannot parse json to array");
+        $class = new Task();
+        foreach ($json as $key => $value) {
+            if (property_exists($class, $key)) {
+                $class->$key = $value;
+            }
+        }
+        return $class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @param string $title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
     }
 
     /**
@@ -70,18 +107,18 @@ class Task
     /**
      * @return string
      */
-    public function getOutputDir()
-    {
-        return $this->outputDir;
-    }
+//    public function getOutputDir()
+//    {
+//        return $this->outputDir;
+//    }
 
     /**
      * @param string $outputDir
      */
-    public function setOutputDir($outputDir)
-    {
-        $this->outputDir = $outputDir;
-    }
+//    public function setOutputDir($outputDir)
+//    {
+//        $this->outputDir = $outputDir;
+//    }
 
     /**
      * @return array
@@ -99,6 +136,7 @@ class Task
         $this->timerOption = $timerOption;
     }
 
+
     /**
      * @param string $command
      * @return string
@@ -106,7 +144,9 @@ class Task
      */
     public function takePhoto(&$command = '')
     {
-        $output_file = $this->outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
+        $outputDir = PageCameraHelper::readConfig("env", ['output', 'dir'], __DIR__ . '/../output');
+
+        $output_file = $outputDir . '/' . $this->taskID . "_" . date('YmdHis') . ".png";
 
         $node = PageCameraHelper::readConfig("env", ["node_executable_path"], "node");
 
@@ -124,8 +164,6 @@ class Task
 
         $line = exec($command, $output, $return_var);
 
-        // TODO store
-
         if ($return_var !== 0) {
             throw new \Exception("EXEC " . $command . " returned " . json_encode($return_var) . ' and output as ' . json_encode($output));
         }
@@ -133,9 +171,6 @@ class Task
         //done
         return $output_file;
     }
-
-
-    //// getter and setter
 
     /**
      * @return bool
@@ -209,11 +244,28 @@ class Task
         return $this->taskID;
     }
 
+
     /**
      * @param mixed $taskID
      */
     public function setTaskID($taskID)
     {
         $this->taskID = $taskID;
+    }
+
+    /**
+     * @return string
+     */
+    public function toJsonString()
+    {
+        $json = [];
+        foreach ([
+                     "title", "url", "fullPage", "viewportWidth", "viewportHeight", "delay",
+                     //"outputDir",
+                     "taskID", "timerOption"
+                 ] as $key) {
+            $json[$key] = $this->$key;
+        }
+        return json_encode($json);
     }
 }

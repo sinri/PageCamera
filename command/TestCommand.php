@@ -26,7 +26,7 @@ class TestCommand extends Enos
     protected function readConfig($keyChain = null, $default = null)
     {
         // TODO: Implement readConfig() method.
-        return [];
+        return null;
     }
 
     public function actionDefault()
