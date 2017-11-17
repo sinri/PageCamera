@@ -122,7 +122,7 @@ class Task
         // TODO store
 
         if ($return_var !== 0) {
-            throw new \Exception("EXEC returned " . json_encode($return_var) . ' and output as ' . json_encode($output));
+            throw new \Exception("EXEC " . $command . " returned " . json_encode($return_var) . ' and output as ' . json_encode($output));
         }
 
         //done
