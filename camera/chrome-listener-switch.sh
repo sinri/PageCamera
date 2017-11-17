@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This command is designed under Debian 8
+# And Chrome Headless instance is defined as command `google-chrome`
+
 checkNotRoot() {
     if [ "`whoami`" == "root" ]; then
         echo "You are running this as ROOT, which is not safe. EXIT"
