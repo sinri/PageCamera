@@ -23,6 +23,8 @@ startChromeHeadless() {
 stopChromeHeadless() {
     ps aux|grep chrome|grep 9222
     ps aux|grep chrome|grep 9222|awk '{print "kill ",$2}'|bash
+    echo "spend 3 seconds to wait for stopping..."
+    sleep 3
 }
 
 statusOfChromeHeadless() {
@@ -56,6 +58,17 @@ case $1 in
             exit 1
         fi;
         stopChromeHeadless
+        statusOfChromeHeadless
+        ;;
+    restart)
+        checkNotRoot
+        echo restarting
+        statusOfChromeHeadless
+        if [ $? != 0 ]; then
+            stopChromeHeadless
+        fi
+        statusOfChromeHeadless
+        startChromeHeadless
         statusOfChromeHeadless
         ;;
     status)
