@@ -46,6 +46,27 @@ CDP(async function(client){
     await Page.navigate({url: targetURL});
 
     Page.loadEventFired(async() => {
+        // original
+        // if (fullPage) {
+        //     const {root: {nodeId: documentNodeId}} = await DOM.getDocument();
+        //     const {nodeId: bodyNodeId} = await DOM.querySelector({
+        //         selector: 'body',
+        //         nodeId: documentNodeId,
+        //     });
+        //
+        //     const {model: {height}} = await DOM.getBoxModel({nodeId: bodyNodeId});
+        //     await Emulation.setVisibleSize({width: device.width, height: height});
+        //     await Emulation.setDeviceMetricsOverride({
+        //         width: device.width,
+        //         height: height,
+        //         screenWidth: device.width,
+        //         screenHeight: height,
+        //         deviceScaleFactor: 1,
+        //         fitWindow: false,
+        //         mobile: false
+        //     });
+        //     await Emulation.setPageScaleFactor({pageScaleFactor:1});
+        // }
         if (fullPage) {
             const {root: {nodeId: documentNodeId}} = await DOM.getDocument();
             const {nodeId: bodyNodeId} = await DOM.querySelector({
@@ -53,16 +74,16 @@ CDP(async function(client){
                 nodeId: documentNodeId,
             });
 
-            const {model: {height}} = await DOM.getBoxModel({nodeId: bodyNodeId});
+            const {model: {height, width}} = await DOM.getBoxModel({nodeId: bodyNodeId});
             await Emulation.setVisibleSize({width: device.width, height: height});
             await Emulation.setDeviceMetricsOverride({
-                width: device.width,
+                width: width,//device.width,
                 height: height,
-                screenWidth: device.width,
+                screenWidth: width,//device.width,
                 screenHeight: height,
                 deviceScaleFactor: 1,
-                fitWindow: device.fitWindow,//false,
-                mobile: device.mobile//false
+                fitWindow: false,
+                mobile: false
             });
             await Emulation.setPageScaleFactor({pageScaleFactor:1});
         }
